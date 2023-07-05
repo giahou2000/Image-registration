@@ -1,7 +1,6 @@
 from mySimpleDescriptor import myLocalDescriptor
 import cv2
 import numpy as np
-import math
 
 filename = "im1.png"
 image = cv2.imread(filename, 0)
