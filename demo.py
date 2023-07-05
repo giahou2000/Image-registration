@@ -6,9 +6,9 @@ img = Image.open('im1.png').convert('L')
 pix = img.load()
 width, height = img.size
 
-print(width)
-print(height)
-print(pix[-1630, -1320])
-print(type(pix))
+rhom = 5
+rhoM = 20
+rhostep = 1
+N = 8
 
-d = myLocalDescriptor(img, p = 0, rhom = 0, rhoM = 0, rhostep = 0, N = 0)
+d = myLocalDescriptor(pix, pix[-100, -100], rhom, rhoM, rhostep, N)
