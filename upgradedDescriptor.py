@@ -32,6 +32,7 @@ def myLocalDescriptorUpgrade(I, p, rhom, rhoM, rhostep, N):
 
             temp.append(pixel_values)
         
-    d = np.mean(temp, axis=0)
+    # the descriptor is
+    d = np.mean(temp, axis=1)
 
     return d

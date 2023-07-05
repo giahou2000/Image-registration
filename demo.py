@@ -1,4 +1,5 @@
 from mySimpleDescriptor import myLocalDescriptor
+from upgradedDescriptor import myLocalDescriptorUpgrade
 import cv2
 import numpy as np
 
@@ -12,4 +13,7 @@ N = 8
 p = [100, 100]
 
 d = myLocalDescriptor(image, p, rhom, rhoM, rhostep, N)
+print(d)
+
+d = myLocalDescriptorUpgrade(image, p, rhom, rhoM, rhostep, N)
 print(d)
