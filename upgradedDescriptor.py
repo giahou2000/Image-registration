@@ -2,7 +2,19 @@ import math
 import numpy as np
 
 def myLocalDescriptorUpgrade(I, p, rhom, rhoM, rhostep, N):
+    """
+    I: the image
+    p: the point that we will describe
+    rhom: the radius of the small circle
+    rhoM: the radius of the big circle
+    rhostep: the radius step for all the circles
+    N: the number of points we will scan on each circle
+    """
+
+    # access some useful image data
     height, width = I.shape[:2]
+
+    # initialize lists
     temp = []
     d = []
 
@@ -15,7 +27,9 @@ def myLocalDescriptorUpgrade(I, p, rhom, rhoM, rhostep, N):
         d = []
     elif p[1] > height - rhoM:
         d = []
+    # create the descriptor
     else:
+        # for each circle
         for r in range(rhom, rhoM + 1, rhostep):
             # Calculate the angle step between pixels
             angle_step = (2 * math.pi) / N
@@ -30,9 +44,10 @@ def myLocalDescriptorUpgrade(I, p, rhom, rhoM, rhostep, N):
                 # Get the pixel value and store it
                 pixel_values.append(I[y, x])
 
+            # store the scanned points of the circle
             temp.append(pixel_values)
         
-    # the descriptor is
+    # the descriptor is the mean values at axis 1 (column-wise)
     d = np.mean(temp, axis=1)
 
     return d
