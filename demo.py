@@ -1,6 +1,7 @@
 from mySimpleDescriptor import myLocalDescriptor
 from upgradedDescriptor import myLocalDescriptorUpgrade
 import cv2
+from HarrisCornerDetector import myDetectHarrisFeatures
 import numpy as np
 
 filename = "im1.png"
@@ -54,3 +55,7 @@ print("")
 print("myLocalDescriptorUpgrade:")
 d = myLocalDescriptorUpgrade(image, p, rhom, rhoM, rhostep, N)
 print(d)
+
+
+# Corners detection
+corners = myDetectHarrisFeatures(image)
